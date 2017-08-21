@@ -6,6 +6,7 @@ public class Player
     private String playerName;
     private int spending;
     private int worth;
+    LuckyGuessGenerator lucky = new LuckyGuessGenerator();
 
 
     public Player()
@@ -96,5 +97,6 @@ public class Player
     
     
     }
+    
     
 }

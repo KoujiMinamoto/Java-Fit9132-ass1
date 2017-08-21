@@ -1,5 +1,3 @@
-
-
 public class Run
 {  
     
@@ -13,10 +11,11 @@ public class Run
        {
            switch(game.getChoice())
            {
-                case 1: player.setNewPlayer(); break;
+                case 1: player.setNewPlayer(); 
+                        break;
                 case 2: if(player.getisCreated())
                         {
-                            lucky.vending();
+                            game.vending();
                             
                         }
                         else

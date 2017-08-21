@@ -1,4 +1,3 @@
-
 import java.util.*;
 public class Game
 {
@@ -16,10 +15,10 @@ public class Game
         System.out.println("Choose an option:");
     }
     
-    public String getPrizeName(int number)
+    public String getPrizeName(int item)
    {
        String prizeName = null;
-       switch(number)
+       switch(item)
        {
            case 1: prizeName = "PEN"; break;
            case 2: prizeName = "BOOK"; break;
@@ -30,10 +29,10 @@ public class Game
        return prizeName;
    }
    
-   public int getPrizeWorth(int number)
+   public int getPrizeWorth(int item)
    {
        int prizeWorth = 0;
-       switch(number)
+       switch(item)
        {
            case 1: prizeWorth = 10; break;
            case 2: prizeWorth = 20; break;
@@ -62,6 +61,37 @@ public class Game
        System.out.println("\t" + player.getprizesWon());
        System.out.println("worth a total $" + player.getWorth());
        System.out.println("Total amount spent is $" + player.getSpending());
+       
+   }
+   
+    public void vending()
+   {
+       int guessedNumber;
+       int myGuess = lucky.getrandomNumber();
+       Scanner prizeScanner = new Scanner(System.in);
+       System.out.print("Guess a number between 1-5 : ");
+       guessedNumber = prizeScanner.nextInt();
+       if (guessedNumber >= 1 && guessedNumber <= 5)
+       {
+           player.setSpending(guessedNumber);
+           System.out.println("Your Guess : " + guessedNumber);
+           System.out.println("My Guess: " + myGuess);
+           if(guessedNumber == myGuess)
+           {
+               System.out.println("Congratulations! You have won a " + getPrizeName(myGuess) +", worth $" + getPrizeWorth(myGuess));
+               player.addPrizeWon(getPrizeName(myGuess), getPrizeWorth(myGuess));
+           }
+           else
+           {
+               System.out.println("What a shame! You have won absolutely NOTHING!");
+               System.out.println("Please try again.");
+               
+           }  
+       }
+       else
+       {
+           System.out.println("Error : only choose 1-5");
+       }
        
    }
     

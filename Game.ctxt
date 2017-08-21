@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Game
+comment1.params=
+comment1.target=void\ displaymenu()
+comment2.params=number
+comment2.target=java.lang.String\ getPrizeName(int)
+comment3.params=number
+comment3.target=int\ getPrizeWorth(int)
+comment4.params=
+comment4.target=int\ getChoice()
+comment5.params=
+comment5.target=void\ prizeWonSoFar()
+numComments=6

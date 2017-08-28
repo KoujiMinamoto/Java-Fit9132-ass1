@@ -94,6 +94,53 @@ public class Game
        }
        
    }
+   
+   public void rungame()
+   {
+       boolean exit = false;
+       while (!exit)
+       {
+           switch(getChoice())
+           {
+                case 1: player.setNewPlayer(); 
+                        break;
+                case 2: if(player.getisCreated())
+                        {
+                            vending();   
+                        }
+                        else
+                        {
+                            System.out.println("Error : player has not been set up!");
+                        }
+                        break;
+                case 3: if(player.getisCreated())
+                        {
+                            prizeWonSoFar();
+                            
+                        }
+                        else
+                        {
+                            System.out.println("Error : player has not been set up!");
+                        }   
+                        break;
+                case 4: player.help();
+                        break;
+                case 5: exit = true;
+                        System.out.println("Goodbye. Thank you for playing.");
+                        break;
+        
+               
+            }
+               
+                   
+           
+        
+       }
+    
+    
+    
+    
+    }
     
     
 }

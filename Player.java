@@ -6,12 +6,10 @@ public class Player
     private String playerName;
     private int spending;
     private int worth;
-    LuckyGuessGenerator lucky = new LuckyGuessGenerator();
-
 
     public Player()
     {
-        // initialise instance variables
+       
         isCreated = false;
         prizesWon = "";
         playerName = "";
@@ -47,14 +45,6 @@ public class Player
         worth = worth + prizeValue;
     }
     
-    public void exitGame()
-    {
-        isCreated = false;
-        prizesWon = "";
-        playerName = "";
-        spending = 0;
-        worth = 0;
-    }
     
     public boolean getisCreated()
     {

@@ -1,7 +1,11 @@
 import java.util.*;
 public class Game
 {
+
     Player player = new Player();
+    private boolean isCreated;
+    private String playerName;
+
     LuckyGuessGenerator lucky = new LuckyGuessGenerator();
     public void displaymenu()
     {
@@ -12,11 +16,37 @@ public class Game
         System.out.println("(3) What Have I Won So Far?");
         System.out.println("(4) Display Game Help");
         System.out.println("(5) Exit Game");
+        System.out.println("====================================");
         System.out.println("Choose an option:");
     }
     
+    public void setNewPlayer()
+    {
+        String name = "";
+        Scanner playerNameScanner = new Scanner(System.in);
+        System.out.print("Enter Player's Name: ");
+        name = playerNameScanner.nextLine();
+        if(name.trim().isEmpty())
+        {
+            System.out.println("Error: The Player's name must not be blank!");
+        }
+        else
+        {
+
+            playerName = name;
+
+            isCreated = true;
+        }
+        
+    }
+    
+    public String getplayerName()
+    {
+        return playerName;
+    }
+    
     public String getPrizeName(int item)
-   {
+    {
        String prizeName = null;
        switch(item)
        {
@@ -27,10 +57,10 @@ public class Game
            case 5: prizeName = "Keyboard"; break;
        }
        return prizeName;
-   }
+    }
    
-   public int getPrizeWorth(int item)
-   {
+    public int getPrizeWorth(int item)
+    {
        int prizeWorth = 0;
        switch(item)
        {
@@ -42,30 +72,34 @@ public class Game
        }
        return prizeWorth;
     }
+    
+    public boolean getisCreated()
+    {
+        return isCreated;
+    }
    
-   
-   public int getChoice()
-   {
+    public int getChoice()
+    {
        Scanner choiceScanner = new Scanner(System.in);
        int choice;
        displaymenu();
        choice = choiceScanner.nextInt();
        return choice;
        
-   }
+    }
    
    
-   public void prizeWonSoFar()
-   {
-       System.out.println("Player " + player.getplayerName() + " has won these prizes :");
+    public void prizeWonSoFar()
+    {
+       System.out.println("Player " + getplayerName() + " has won these prizes :");
        System.out.println("\t" + player.getprizesWon());
        System.out.println("worth a total $" + player.getWorth());
        System.out.println("Total amount spent is $" + player.getSpending());
        
-   }
+    }
    
     public void vending()
-   {
+    {
        int guessedNumber;
        int myGuess = lucky.getrandomNumber();
        Scanner prizeScanner = new Scanner(System.in);
@@ -93,18 +127,19 @@ public class Game
            System.out.println("Error : only choose 1-5");
        }
        
-   }
+    }
    
-   public void rungame()
-   {
+    public void rungame()
+    {
        boolean exit = false;
        while (!exit)
        {
            switch(getChoice())
            {
-                case 1: player.setNewPlayer(); 
+                case 1: player = new Player();
+                        setNewPlayer(); 
                         break;
-                case 2: if(player.getisCreated())
+                case 2: if(getisCreated())
                         {
                             vending();   
                         }
@@ -113,7 +148,7 @@ public class Game
                             System.out.println("Error : player has not been set up!");
                         }
                         break;
-                case 3: if(player.getisCreated())
+                case 3: if(getisCreated())
                         {
                             prizeWonSoFar();
                             

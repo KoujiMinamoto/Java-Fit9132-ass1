@@ -5,7 +5,12 @@ public class Player
     private String prizesWon = "";
     private int spending;
     private int worth;
-
+    
+    public Player()
+    {
+        
+    }
+    
     public void addPrizeWon(String prizeName, int prizeValue)
     {
         prizesWon = prizesWon + " " + prizeName;
@@ -34,6 +39,7 @@ public class Player
     
     public void help()
     {
+        System.out.println("Welcome to Lucky Machine");
         System.out.println("NumberGenerated  Price Won  Price Worth   Cost to player");
         System.out.println("1                Pen        $10           $1");
         System.out.println("2                Book       $20           $2");

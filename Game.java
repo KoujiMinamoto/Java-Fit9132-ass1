@@ -2,11 +2,16 @@ import java.util.*;
 public class Game
 {
 
-    Player player = new Player();
+    Player player ;
     private boolean isCreated;
     private String playerName;
-
     LuckyGuessGenerator lucky = new LuckyGuessGenerator();
+    
+    public Game()
+    {
+        
+    }
+    
     public void displaymenu()
     {
         System.out.println("Welcome to the Lucky Vending Machine");
@@ -166,16 +171,9 @@ public class Game
         
                
             }
-               
-                   
-           
-        
-       }
-    
-    
-    
-    
-    }
-    
+            
+       } 
+       
+    } 
     
 }
